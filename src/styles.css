@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+body {
+  background-color:  rgb(255, 250, 152);
+}
+
+.arial {
+  font-family: Arial, serif;
+}
+
+.red {
+  color: red;
+}
+
+.cursor{
+  cursor: pointer;
+}

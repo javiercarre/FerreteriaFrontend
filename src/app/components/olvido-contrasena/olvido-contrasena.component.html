@@ -1,0 +1,38 @@
+<app-navbar [nombre]="'OLVIDO DE CONTRASEÑA'"></app-navbar>
+
+<div class="row d-flex align-items-center justify-content-center vh-100">
+
+  <!-- Cara imagen -->
+  <div class="col-6">
+    <div class="card">
+      <img src="../../../assets/img/20210512-131831-Construction-equipment.jpeg" class="card-img-top" alt="...">
+      <div class="card-body color-fondo text-center">
+        <h5 class="card-title">TEGALLMAQUINARIA</h5>
+        <p class="card-text text-bold fw-bold arial">Lista de verificación</p>
+      </div>
+    </div>
+
+    <button routerLink="/login" class="btn btn-primary mt-2">Volver</button>
+  </div>
+
+  <!-- Campos para iniciar sesion -->
+  <div class="col-6 d-flex flex-column align-items-center justify-content-center" [formGroup]="formularioOlvido">
+
+    <!-- USUARIO -->
+    <input type="text"
+           class="form-control mb-2"
+           placeholder="USUARIO"
+           formControlName="usuario"
+    >
+
+    <!-- Mensaje de error -->
+    <p class="red" *ngIf="this.enviado && this.formularioOlvido.controls.usuario.errors?.['required']">
+      * Este campo es obligatorio
+    </p>
+    <button type="button" class="btn btn-primary" (click)="verificar()">Verificar</button>
+  </div>
+
+
+</div>
+
+

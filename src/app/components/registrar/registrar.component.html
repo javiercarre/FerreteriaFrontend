@@ -1,0 +1,115 @@
+<!-- Barra de titulo -->
+<app-navbar [nombre]="'REGISTRAR'"></app-navbar>
+
+<form [formGroup]="formularioRegistro" (ngSubmit)="guardar()">
+
+  <div class="row mt-2">
+
+    <!-- Columna Izquierda -->
+    <div class="col-6 d-flex flex-column align-items-center justify-content-center">
+
+      <!-- NOMBRE/APELLIDOS -->
+      <input type="text"
+             class="form-control mb-2"
+             placeholder="NOMBRE/APELLIDOS"
+             formControlName="nombres"
+             maxlength="100"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.nombres.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+
+      <!-- USUARIO -->
+      <input type="text"
+             class="form-control mb-2"
+             placeholder="USUARIO"
+             formControlName="usuario"
+             maxlength="20"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.usuario.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+
+      <!-- N. DOCUMENTO -->
+      <input type="text"
+             class="form-control mb-2"
+             placeholder="N. DOCUMENTO"
+             formControlName="no_documento"
+             maxlength="20"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.no_documento.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+
+      <!-- CORREO -->
+      <input type="email"
+             class="form-control mb-2"
+             placeholder="CORREO"
+             formControlName="correo"
+             maxlength="25"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.correo.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.correo.errors?.['email']">
+        * Este campo debe ser una dirección de correo válida
+      </span>
+
+      <!-- TELEFONO -->
+      <input type="text"
+             class="form-control mb-2"
+             placeholder="TELEFONO"
+             formControlName="telefono"
+             maxlength="10"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.telefono.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+
+      <!-- ROL -->
+      <select *ngIf="roles"
+              class="form-select mb-2"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+              formControlName="rol">
+              <option value="null" disabled selected>ROL</option>
+              <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombre }}</option>
+      </select>
+
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.rol.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+
+      <!-- CONTRASEÑA -->
+      <input type="password"
+             class="form-control mb-2"
+             placeholder="CONTRASEÑA"
+             formControlName="contrasena"
+             maxlength="20"
+      >
+      <span class="red" *ngIf="this.enviado && this.formularioRegistro.controls.contrasena.errors?.['required']">
+        * Este campo es obligatorio
+      </span>
+    </div>
+
+    <!-- Columna Derecha -->
+    <div class="col-6">
+      <img src="../../../assets/img/check-list-sign-flat-icon-illustration-free-ve.jpg" class="w-100" alt="">
+    </div>
+  </div>
+
+
+  <!--<pre>
+    {{ this.formularioRegistro.value | json }}
+  </pre>-->
+
+  <!-- Botones -->
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-between">
+      <button class="btn btn-primary" [routerLink]="['/login']">VOLVER</button>
+      <button class="btn btn-primary" type="submit">GUARDAR</button>
+    </div>
+  </div>
+</form>
+
+

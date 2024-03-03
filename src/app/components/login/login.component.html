@@ -1,0 +1,50 @@
+<div class="row d-flex align-items-center justify-content-center vh-100">
+
+  <!-- Cara imagen -->
+  <div class="col-6">
+    <div class="card">
+      <img src="../../../assets/img/20210512-131831-Construction-equipment.jpeg" class="card-img-top" alt="...">
+      <div class="card-body color-fondo text-center">
+        <h5 class="card-title">TEGALLMAQUINARIA</h5>
+        <p class="card-text text-bold fw-bold arial">Lista de verificación</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campos para iniciar sesion -->
+  <div class="col-6 d-flex flex-column align-items-center justify-content-center" [formGroup]="formularioLogin">
+
+    <!-- USUARIO -->
+    <input type="text"
+           class="form-control mb-2"
+           placeholder="USUARIO"
+           formControlName="usuario"
+    >
+
+    <!-- Mensaje de error -->
+    <p class="red" *ngIf="this.enviado && this.formularioLogin.controls.usuario.errors?.['required']">
+      * Este campo es obligatorio
+    </p>
+
+    <!-- CONTRASEÑA -->
+    <input type="password"
+           class="form-control mb-4"
+           placeholder="CONTRASEÑA"
+           formControlName="contrasena"
+    >
+    <!-- Mensaje de error -->
+    <p class="red" *ngIf="this.enviado && this.formularioLogin.controls.contrasena.errors?.['required']">
+      * Este campo es obligatorio
+    </p>
+
+    <button type="button" class="btn btn-primary" (click)="iniciarSesion()">Ingresar</button>
+    <br>
+    <a href="/olvido-contrasena">¿Olvidó su contraseña?</a>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" [routerLink]="['/registrar']">Registrar</button>
+  </div>
+
+
+</div>
+
